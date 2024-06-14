@@ -264,12 +264,7 @@ input, select, textarea {
 		display: flex;
 		flex-wrap: wrap;
 		box-sizing: border-box;
-		align-items: stretch;
 		justify-content: center;
-	}
-
-		.row > * {
-			box-sizing: border-box;
 		}
 
 		.row.gtr-uniform > * > :last-child {
