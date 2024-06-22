@@ -375,13 +375,13 @@ br.clear {
 
 /* Article text */
 
-.articletext {
+.blog-article-text {
 	text-align: left;
 }
 
 /* Article paragraph */
 
-.articleparagraph {
+.blog-article-paragraph {
 	font-size: 20px;
 }
 
