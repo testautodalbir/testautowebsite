@@ -379,6 +379,12 @@ br.clear {
 	text-align: left;
 }
 
+/* Article paragraph */
+
+.articleparagraph {
+	font-size: 20px;
+}
+
 /* Row */
 
 .row {
