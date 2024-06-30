@@ -1919,6 +1919,27 @@ article:last-child {
 	width: auto;
 }
 
+div.scroll-container {
+	background-color: #f5fafa;
+	overflow: auto;
+	white-space: nowrap;
+	padding: 10px;
+  }
+  
+  div.scroll-container img {
+	padding: 10px;
+	height: 200px;
+	width: 200px;
+  }
+
+  #main>section.two {
+	background-color: #f5fafa;
+}
+
+#main>section.three {
+	background-color: #ecf1f1;
+}
+
 /* List */
 
 ul {
