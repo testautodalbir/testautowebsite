@@ -1,0 +1,11 @@
+Test Case ID,Description,Result
+TC1,Login with valid credentials,Pass
+TC2,Login with invalid credentials,Pass
+TC3,Search for a product,Pass
+TC4,Add item to cart,Pass
+TC5,Complete checkout,Pass
+TC6,Apply discount code,Pass
+TC7,Remove item from cart,Pass
+TC8,Update user profile,Pass
+TC9,Logout,Fail
+TC10,View order history,Fail

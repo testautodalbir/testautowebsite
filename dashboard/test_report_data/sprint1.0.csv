@@ -1,0 +1,7 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect,encoding
+1720340230680,102,Homepage,200,OK,Thread Group 1-12,text,true,,1421,120,12,500,https://www.example.com/,95,0,85,UTF-8
+1720340230681,205,Login,200,OK,Thread Group 2-4,text,true,,892,245,8,500,https://www.example.com/login,200,0,110,UTF-8
+1720340230682,310,Checkout,503,Service Unavailable,Thread Group 4-7,text,false,High load,0,412,5,500,https://www.example.com/checkout,300,0,150,UTF-8
+1720340230683,1480,Payment Gateway,504,Gateway Timeout,Thread Group 6-3,json,false,Third-party timeout,0,520,3,500,https://api.example.com/pay,1450,0,200,UTF-8
+1720340230684,42,Search,200,OK,Thread Group 3-19,json,true,,1532,98,20,500,https://www.example.com/search,40,0,30,UTF-8
+1720340230685,180,Add to Cart,200,OK,Thread Group 7-9,json,true,,678,210,9,500,https://www.example.com/cart,175,0,90,UTF-8
