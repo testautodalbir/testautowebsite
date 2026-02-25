@@ -72,37 +72,134 @@
             <div class="container">
                 <header>
                     <h2>How To Create A Test Reporting Dashboard</h2>
-                    <i>By <a href="https://www.linkedin.com/in/sindalbir/">Dalbir Singh</a>, Founder & Quality Engineer
-                        @ <a href="https://www.testauto.no">Testauto.no</a> - 10.05.2025</i>
+                    <p class="article-meta">
+                        <span>By <a href="https://www.linkedin.com/in/sindalbir/">Dalbir Singh</a></span>
+                        <span aria-hidden="true">·</span>
+                        <time datetime="2025-05-10">May 10, 2025</time>
+                        <span aria-hidden="true">·</span>
+                        <span>Test Automation</span>
+                    </p>
                 </header>
                 <div class="blog-article-text">
+                    <p class="article-nav"><a href="../blog.html">Back to all articles</a></p>
                     <h3>Introduction</h3> <br>
                     <div class="blog-article-paragraph">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem voluptas iusto saepe neque,
-                            nisi, dolorum aliquam similique laboriosam sit unde possimus! Amet nemo saepe maxime animi
-                            quod sit ratione consequuntur.
+                            A test reporting dashboard should do more than list pass/fail counts. It should help teams
+                            decide whether a release is safe, where quality risk is increasing, and what actions should
+                            be prioritized. A useful dashboard balances technical depth for engineers with clear,
+                            decision-oriented summaries for stakeholders.
                         </p>
-                        <div class="blog-article-paragraph">
-                        </div>
-                        <div class="blog-article-paragraph">
-                            <h3>1. Step</h3> <br>
-                            <p>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae exercitationem in,
-                                pariatur iste, incidunt nisi reprehenderit atque error unde nam sed itaque a, doloribus
-                                minus architecto consequatur quod cum sint.
-                            </p>
-                            <u>Point 1</u>
-                            <ul>
-                                <li>List item</li>
-                            </ul>
-                            <u>Point 2</u>
-                            <ul>
-                                <li>List item</li>
-                            </ul>
-                        </div>
+                    </div>
+
+                    <div class="blog-article-paragraph article-abbreviations">
+                        <h3>Abbreviations Used In This Article</h3>
+                        <ul>
+                            <li>TAS = Test Automation Solution</li>
+                            <li>SUT = System Under Test</li>
+                            <li>KPI = Key Performance Indicator</li>
+                            <li>MTTR = Mean Time To Resolution</li>
+                        </ul>
+                    </div>
+
+                    <div class="blog-article-paragraph">
+                        <h3>1. Define The Dashboard Objectives</h3> <br>
+                        <p>
+                            Start with the decisions the dashboard must support. Typical decisions include go/no-go for
+                            release, investment priorities in test automation, and identification of unstable areas in
+                            the product.
+                        </p>
+                        <u>Best practice</u>
+                        <ul>
+                            <li>Assign each metric to a concrete decision and owner.</li>
+                            <li>Use a small set of leading indicators first; expand only when needed.</li>
+                        </ul>
+                    </div>
+
+                    <div class="blog-article-paragraph">
+                        <h3>2. Select Balanced Metrics</h3> <br>
+                        <p>
+                            A practical dashboard includes quality, speed, and maintainability metrics so teams do not
+                            optimize one dimension at the expense of another.
+                        </p>
+                        <u>Core metric groups</u>
+                        <ul>
+                            <li>Quality outcomes: defect leakage, failed critical tests, reopened defects.</li>
+                            <li>Execution health: pass rate trend, flaky test rate, execution duration by suite.</li>
+                            <li>Coverage and risk: requirement coverage, risk-based coverage, untested high-risk areas.</li>
+                            <li>Efficiency: automation rate, maintenance effort, MTTR for failed tests.</li>
+                        </ul>
+                    </div>
+
+                    <div class="blog-article-paragraph">
+                        <h3>3. Design For Clarity</h3> <br>
+                        <p>
+                            Readers should understand status in under one minute. Keep layout predictable and highlight
+                            exceptions, not just averages.
+                        </p>
+                        <u>Design principles</u>
+                        <ul>
+                            <li>Top row: release status, trend indicators, and high-risk alerts.</li>
+                            <li>Middle row: drill-down by component, environment, and test type.</li>
+                            <li>Bottom row: detailed defect and incident tables for root-cause analysis.</li>
+                            <li>Use consistent color semantics (green/amber/red) and fixed date ranges.</li>
+                        </ul>
+                    </div>
+
+                    <div class="blog-article-paragraph">
+                        <h3>4. Implement Reliable Data Collection</h3> <br>
+                        <p>
+                            Dashboards are only as good as their data quality. Standardize event naming, timestamps,
+                            and status codes across tools.
+                        </p>
+                        <u>Implementation checklist</u>
+                        <ul>
+                            <li>Collect test events from CI/CD, test framework, and defect tracker.</li>
+                            <li>Version your metric definitions so trend changes are explainable.</li>
+                            <li>Store historical snapshots to avoid losing baseline context.</li>
+                            <li>Track data freshness and pipeline failures as first-class metrics.</li>
+                        </ul>
+                    </div>
+
+                    <div class="blog-article-paragraph">
+                        <h3>5. Operationalize Reporting</h3> <br>
+                        <p>
+                            Reporting should be automated and role-based. Engineers need detailed failure context,
+                            while leaders need trend and risk summaries.
+                        </p>
+                        <u>Operational practices</u>
+                        <ul>
+                            <li>Publish dashboards automatically after each pipeline run.</li>
+                            <li>Use weekly trend reports with commentary and corrective actions.</li>
+                            <li>Review metric relevance monthly and retire low-value indicators.</li>
+                        </ul>
+                    </div>
+
+                    <div class="blog-article-paragraph">
+                        <h3>Conclusion</h3> <br>
+                        <p>
+                            A high-value test reporting dashboard combines clear objectives, well-selected metrics,
+                            reliable data pipelines, and disciplined review cadence. When implemented correctly, it
+                            helps teams reduce delivery risk and improve both quality and speed over time.
+                        </p>
+                    </div>
+
+                    <div class="blog-article-paragraph article-references">
+                        <h3>References</h3>
+                        <p>Reference style: numbered web references (best suited for blog readability).</p>
+                        <ol>
+                            <li><a href="https://www.istqb.org/standards/foundation-level-syllabus" target="_blank" rel="noopener noreferrer">ISTQB Certified Tester Foundation Level Syllabus</a></li>
+                            <li><a href="https://www.istqb.org/sdm_downloads/istqb-ctal-tae-syllabus-v2-0/" target="_blank" rel="noopener noreferrer">ISTQB CTAL-TAE Syllabus v2.0</a></li>
+                            <li><a href="https://www.guru99.com/test-metrics-software-testing.html" target="_blank" rel="noopener noreferrer">Guru99: Test Metrics in Software Testing</a></li>
+                            <li><a href="https://www.guru99.com/test-summary-report.html" target="_blank" rel="noopener noreferrer">Guru99: Test Summary Report</a></li>
+                            <li><a href="https://www.sciencedirect.com/science/article/abs/pii/S0950584916000464" target="_blank" rel="noopener noreferrer">Garousi, V., &amp; Mäntylä, M. V. (2016). When and what to automate in software testing?</a></li>
+                        </ol>
+                    </div>
+                    <div class="blog-article-paragraph article-cta">
+                        <p>Need help applying these practices in your team? <a href="../index.html#contact">Get in touch</a>.</p>
                     </div>
                 </div>
+            </div>
         </section>
     </div>
 

@@ -1970,6 +1970,43 @@ article:last-child {
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
+#blog-list .blog-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 1.2rem;
+}
+
+#blog-list .blog-card {
+	height: 100%;
+	padding: 1.2rem;
+	border-radius: 0.6rem;
+	background: rgba(255, 255, 255, 0.78);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	display: flex;
+	flex-direction: column;
+}
+
+#blog-list .blog-card h3 {
+	font-size: 1.18em;
+	line-height: 1.35;
+	margin-bottom: 0.55em;
+}
+
+#blog-list .blog-meta {
+	font-size: 0.92em;
+	color: #6c7478;
+	margin-bottom: 0.8em;
+}
+
+#blog-list .blog-card p {
+	margin-bottom: 1em;
+}
+
+#blog-list .blog-card .button {
+	margin-top: auto;
+	align-self: center;
+}
+
   #main>section.two {
 	background-color: #f5fafa;
 }
@@ -2143,6 +2180,45 @@ form ::-moz-focus-inner {
 	font-size: 0.7em;
 }
 
+.article-abbreviations,
+.article-references {
+	margin: 1.5em 0;
+	padding: 1em 1.15em;
+	background: rgba(255, 255, 255, 0.65);
+	border-radius: 0.45em;
+	border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.article-abbreviations p,
+.article-references p {
+	margin-bottom: 0.8em;
+}
+
+.article-references ol {
+	margin-bottom: 0;
+}
+
+.article-meta {
+	font-size: 0.95em;
+	color: #6c7478;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.45em;
+	align-items: center;
+	margin-top: 0.35em;
+}
+
+.article-nav {
+	margin: 0.25em 0 1.2em 0;
+	font-size: 0.95em;
+}
+
+.article-cta {
+	margin-top: 1.75em;
+	padding-top: 1em;
+	border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
 /* Table */
 
 table {
@@ -2214,6 +2290,31 @@ input[type="reset"]:active,
 button:active,
 .button:active {
 	background-color: #7eaeac;
+}
+
+.button.secondary {
+	background-color: #5e6a71;
+}
+
+.button.secondary:hover {
+	background-color: #4c565c;
+}
+
+.intro-actions {
+	display: flex;
+	gap: 0.75em;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.section-lead {
+	max-width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.service-icon {
+	pointer-events: none;
 }
 
 /* Item */
