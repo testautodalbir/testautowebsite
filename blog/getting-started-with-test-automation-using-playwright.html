@@ -1,0 +1,324 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <title>Getting Started with Test Automation Using Playwright - testauto.no</title>
+    <!-- FavIcon -->
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+        content="A practical beginner guide to test automation with Playwright for GUI and API testing." />
+    <link rel="canonical" href="https://testauto.no/blog/getting-started-with-test-automation-using-playwright.html" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <meta property="og:title" content="Getting Started with Test Automation Using Playwright" />
+    <meta property="og:description"
+        content="Learn why Playwright is a strong choice for test automation and how to get started with GUI and API demos." />
+    <meta property="og:image" content="https://testauto.no/images/testAutoLogoTransparentThin.png" />
+    <meta property="og:url"
+        content="https://testauto.no/blog/getting-started-with-test-automation-using-playwright.html" />
+    <meta property="og:type" content="article" />
+    <meta property="article:tag" content="Playwright" />
+    <meta property="article:tag" content="Test Automation" />
+    <meta property="article:tag" content="GUI Testing" />
+    <meta property="article:tag" content="API Testing" />
+    <meta property="article:tag" content="End-to-End Testing" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Getting Started with Test Automation Using Playwright" />
+    <meta name="twitter:description"
+        content="A practical starter guide for Playwright test automation with GUI and API examples." />
+    <meta name="twitter:image" content="https://testauto.no/images/testAutoLogoTransparentThin.png" />
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Getting Started with Test Automation Using Playwright",
+        "datePublished": "2026-03-06",
+        "dateModified": "2026-03-06",
+        "author": {
+            "@type": "Person",
+            "name": "Dalbir Singh"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Testauto.no",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://testauto.no/images/testAutoLogoTransparentThin.png"
+            }
+        },
+        "mainEntityOfPage": "https://testauto.no/blog/getting-started-with-test-automation-using-playwright.html",
+        "keywords": [
+            "playwright",
+            "test automation",
+            "gui testing",
+            "api testing",
+            "end-to-end testing"
+        ]
+    }
+    </script>
+</head>
+
+<body class="is-preload">
+
+    <!-- Header -->
+    <div id="header">
+
+        <div class="top">
+
+            <!-- Logo -->
+            <div id="logo">
+                <span class="image avatar48"><img src="../images/avatar.jpg" alt="Portrait of Dalbir Singh" /></span>
+                <h1 id="title">Dalbir Singh</h1>
+                <p>Senior Quality Engineer</p>
+            </div>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="../index.html" id="home-link"><span class="icon solid fa-home">Home</span></a></li>
+                    <li><a href="../blog.html" id="blog-link"><span class="icon solid fa-blog">Blog</span></a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+        <div class="bottom">
+
+            <!-- Social Icons -->
+            <ul class="icons">
+                <li><a href="https://www.linkedin.com/in/sindalbir/" class="icon brands fa-linkedin"><span
+                            class="label">LinkedIn</span></a></li>
+                <li><a href="https://github.com/testautodalbir" class="icon brands fa-github"><span
+                            class="label">Github</span></a></li>
+                <li><a href="https://www.instagram.com/dalbir92/" class="icon brands fa-instagram"><span
+                            class="label">Instagram</span></a></li>
+                <li><a href="../index.html#contact" class="icon solid fa-envelope"><span class="label">Email</span></a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- Main -->
+    <div id="main">
+        <section id="blog-article" class="three">
+            <div class="container">
+                <header>
+                    <h2>Getting Started with Test Automation Using Playwright</h2>
+                    <p class="article-meta">
+                        <span>By <a href="https://www.linkedin.com/in/sindalbir/">Dalbir Singh</a></span>
+                        <span aria-hidden="true">·</span>
+                        <time datetime="2026-03-06">March 6, 2026</time>
+                        <span aria-hidden="true">·</span>
+                        <span>Test Automation</span>
+                    </p>
+                </header>
+
+                <div class="blog-article-text">
+                    <p class="article-nav"><a href="../blog.html">Back to all articles</a></p>
+                    <ul class="article-tags" aria-label="Article tags">
+                        <li>Playwright</li>
+                        <li>Test Automation</li>
+                        <li>GUI Testing</li>
+                        <li>API Testing</li>
+                        <li>E2E Testing</li>
+                    </ul>
+
+                    <h3>Introduction</h3> <br>
+                    <div class="blog-article-paragraph">
+                        <p>
+                            In this post, we'll explore how to start with test automation for web applications using
+                            Playwright. We'll go through what Playwright is, why it is a great choice for test
+                            automation, how to set it up, and walk through demo ideas for GUI and API testing.
+                        </p>
+                    </div>
+
+                    <div class="blog-article-paragraph article-abbreviations">
+                        <h3>Abbreviations Used In This Article</h3>
+                        <ul>
+                            <li>GUI = Graphical User Interface</li>
+                            <li>API = Application Programming Interface</li>
+                            <li>E2E = End-to-End</li>
+                            <li>VSCode = Visual Studio Code</li>
+                        </ul>
+                    </div>
+
+                    <div class="blog-article-paragraph">
+                        <h3>1. What is Playwright?</h3> <br>
+                        <p>
+                            Playwright is a framework developed by Microsoft for automated testing of web applications.
+                            It lets you run tests across Chromium, Firefox, and WebKit using one API, which makes
+                            cross-browser testing simpler and more consistent.
+                        </p>
+                    </div>
+
+                    <div class="blog-article-paragraph">
+                        <h3>2. Why Choose Playwright?</h3> <br>
+                        <p>Playwright is an excellent choice for web test automation because of the following:</p>
+                        <ul>
+                            <li>Cross-browser support across major engines.</li>
+                            <li>Fast and reliable execution for stable test runs.</li>
+                            <li>Free and open source.</li>
+                            <li>Strong documentation and active community support.</li>
+                        </ul>
+                    </div>
+
+                    <div class="blog-article-paragraph">
+                        <h3>3. Getting Set Up with Playwright</h3> <br>
+                        <p>To start using Playwright, install the required tools and prepare your environment:</p>
+                        <ul>
+                            <li>Step 1: Install Node.js
+                                <ul>
+                                    <li>Download Node.js: <a href="https://nodejs.org/en/download" target="_blank" rel="noopener noreferrer">https://nodejs.org/en/download</a></li>
+                                </ul>
+                            </li>
+                            <li>Step 2: Install Visual Studio Code
+                                <ul>
+                                    <li>Download VSCode: <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener noreferrer">https://code.visualstudio.com/download</a></li>
+                                </ul>
+                            </li>
+                            <li>Step 3: Download sample code
+                                <ul>
+                                    <li>Sample code: <a href="https://drive.google.com/file/d/1ZFZiNJHnkrIvTBOoSc98HA-UpZZP3PIs/view?usp=sharing" target="_blank" rel="noopener noreferrer">Google Drive link</a></li>
+                                </ul>
+                            </li>
+                            <li>Step 4: Install Playwright in VSCode
+                                <ul>
+                                    <li>Open terminal and run: <code>npm init playwright@latest</code></li>
+                                </ul>
+                            </li>
+                            <li>Step 5: Install the Playwright VSCode extension
+                                <ul>
+                                    <li>Open Extensions and search for "Playwright".</li>
+                                    <li>Restart VSCode after installation.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="blog-article-paragraph">
+                        <h3>4. Demo: Automated GUI Testing with Playwright</h3> <br>
+                        <p>
+                            For this demo, create an automation script that verifies website content and behavior.
+                        </p>
+                        <p>Example test case:</p>
+                        <ul>
+                            <li>GIVEN
+                                <ul>
+                                    <li>I am on a website and have searched for a search term.</li>
+                                </ul>
+                            </li>
+                            <li>WHEN
+                                <ul>
+                                    <li>I click a specific search result in the result list.</li>
+                                </ul>
+                            </li>
+                            <li>THEN
+                                <ul>
+                                    <li>The result is displayed with the expected content.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="blog-article-paragraph">
+                        <h3>5. Demo: Automated API Testing with Playwright</h3> <br>
+                        <p>
+                            Playwright is also strong for API testing. In this demo, create a script that verifies both
+                            website content and API responses.
+                        </p>
+                        <p>Example API test case:</p>
+                        <ul>
+                            <li>GIVEN
+                                <ul>
+                                    <li>I am on a website and have searched for a search term.</li>
+                                </ul>
+                            </li>
+                            <li>WHEN
+                                <ul>
+                                    <li>I click a specific search result in the result list.</li>
+                                </ul>
+                            </li>
+                            <li>THEN
+                                <ul>
+                                    <li>The expected content is returned and displayed.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="blog-article-paragraph">
+                        <h3>6. Next Steps</h3> <br>
+                        <p>To continue learning Playwright, use these resources:</p>
+                        <ul>
+                            <li>Playwright docs:
+                                <ul>
+                                    <li><a href="https://playwright.dev/docs/intro" target="_blank" rel="noopener noreferrer">https://playwright.dev/docs/intro</a></li>
+                                </ul>
+                            </li>
+                            <li>Courses on Udemy:
+                                <ul>
+                                    <li><a href="https://www.udemy.com/course/playwright-tutorials-automation-testing/" target="_blank" rel="noopener noreferrer">Playwright tutorials course</a></li>
+                                </ul>
+                            </li>
+                            <li>Homework:
+                                <ul>
+                                    <li>Automate at least one regression test in your own project.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="blog-article-paragraph">
+                        <h3>7. Conclusion</h3> <br>
+                        <p>
+                            Playwright makes it straightforward to get started with test automation across browsers and
+                            platforms. With this guide, you can start building robust and reliable automated tests for
+                            web applications.
+                        </p>
+                    </div>
+
+                    <div class="blog-article-paragraph article-references">
+                        <h3>References</h3>
+                        <p>Reference style: numbered web references (best suited for blog readability).</p>
+                        <ol>
+                            <li><a href="https://playwright.dev/docs/intro" target="_blank" rel="noopener noreferrer">Playwright Documentation</a></li>
+                            <li><a href="https://nodejs.org/en/download" target="_blank" rel="noopener noreferrer">Node.js Download</a></li>
+                            <li><a href="https://code.visualstudio.com/download" target="_blank" rel="noopener noreferrer">Visual Studio Code Download</a></li>
+                            <li><a href="https://www.udemy.com/course/playwright-tutorials-automation-testing/" target="_blank" rel="noopener noreferrer">Playwright Tutorials (Udemy)</a></li>
+                        </ol>
+                    </div>
+
+                    <div class="blog-article-paragraph article-cta">
+                        <p>Need help applying these practices in your team? <a href="../index.html#contact">Get in touch</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+
+        <!-- Copyright -->
+        <ul class="copyright">
+            <li>&copy; Testauto.no. All rights reserved.</li>
+            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>
