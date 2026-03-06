@@ -116,7 +116,7 @@
                     </p>
                 </header>
 
-                <div class="blog-article-text">
+                <div class="blog-article-text playwright-article">
                     <p class="article-nav"><a href="../blog.html">Back to all articles</a></p>
                     <ul class="article-tags" aria-label="Article tags">
                         <li>Playwright</li>
@@ -126,7 +126,7 @@
                         <li>E2E Testing</li>
                     </ul>
 
-                    <h3>Introduction</h3> <br>
+                    <h3>Introduction</h3>
                     <div class="blog-article-paragraph">
                         <p>
                             In this post, we'll explore how to start with test automation for web applications using
@@ -146,7 +146,7 @@
                     </div>
 
                     <div class="blog-article-paragraph">
-                        <h3>1. What is Playwright?</h3> <br>
+                        <h3>1. What is Playwright?</h3>
                         <p>
                             Playwright is a framework developed by Microsoft for automated testing of web applications.
                             It lets you run tests across Chromium, Firefox, and WebKit using one API, which makes
@@ -155,7 +155,7 @@
                     </div>
 
                     <div class="blog-article-paragraph">
-                        <h3>2. Why Choose Playwright?</h3> <br>
+                        <h3>2. Why Choose Playwright?</h3>
                         <p>Playwright is an excellent choice for web test automation because of the following:</p>
                         <ul>
                             <li>Cross-browser support across major engines.</li>
@@ -166,128 +166,194 @@
                     </div>
 
                     <div class="blog-article-paragraph">
-                        <h3>3. Getting Set Up with Playwright</h3> <br>
-                        <p>To start using Playwright, install the required tools and prepare your environment:</p>
+                        <h3>3. Getting Set Up with Playwright</h3>
+                        <p>A clean and repeatable setup saves a lot of time later. Use this baseline:</p>
                         <ul>
-                            <li>Step 1: Install Node.js
-                                <ul>
-                                    <li>Download Node.js: <a href="https://nodejs.org/en/download" target="_blank" rel="noopener noreferrer">https://nodejs.org/en/download</a></li>
-                                </ul>
-                            </li>
-                            <li>Step 2: Install Visual Studio Code
-                                <ul>
-                                    <li>Download VSCode: <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener noreferrer">https://code.visualstudio.com/download</a></li>
-                                </ul>
-                            </li>
-                            <li>Step 3: Download sample code
-                                <ul>
-                                    <li>Sample code: <a href="https://drive.google.com/file/d/1ZFZiNJHnkrIvTBOoSc98HA-UpZZP3PIs/view?usp=sharing" target="_blank" rel="noopener noreferrer">Google Drive link</a></li>
-                                </ul>
-                            </li>
-                            <li>Step 4: Install Playwright in VSCode
-                                <ul>
-                                    <li>Open terminal and run: <code>npm init playwright@latest</code></li>
-                                </ul>
-                            </li>
-                            <li>Step 5: Install the Playwright VSCode extension
-                                <ul>
-                                    <li>Open Extensions and search for "Playwright".</li>
-                                    <li>Restart VSCode after installation.</li>
-                                </ul>
-                            </li>
+                            <li>Install Node.js LTS from <a href="https://nodejs.org/en/download" target="_blank" rel="noopener noreferrer">nodejs.org</a>.</li>
+                            <li>Create a new project folder and initialize Playwright.</li>
+                            <li>Use TypeScript for stronger maintainability as your suite grows.</li>
+                        </ul>
+                        <div class="article-code-block">
+                            <div class="article-code-header"><span>Bash</span></div>
+<pre data-lang="bash"><code>mkdir playwright-starter
+cd playwright-starter
+npm init -y
+npm init playwright@latest
+</code></pre>
+                        </div>
+                        <p>Recommended choices in the installer:</p>
+                        <ul>
+                            <li>Add a GitHub Actions workflow.</li>
+                            <li>Install Playwright browsers.</li>
+                            <li>Keep tests in a dedicated <code>tests/</code> folder.</li>
                         </ul>
                     </div>
 
                     <div class="blog-article-paragraph">
-                        <h3>4. Demo: Automated GUI Testing with Playwright</h3> <br>
+                        <h3>4. Build Your First Reliable GUI Test</h3>
                         <p>
-                            For this demo, create an automation script that verifies website content and behavior.
+                            Start with one user-critical flow such as login, checkout, or search. Focus on stable
+                            locators and clear assertions instead of long, fragile end-to-end scripts.
                         </p>
-                        <p>Example test case:</p>
+                        <div class="article-code-block">
+                            <div class="article-code-header"><span>TypeScript</span></div>
+                        <pre data-lang="typescript"><code>import { test, expect } from '@playwright/test';
+
+test('search returns relevant results', async ({ page }) =&gt; {
+  await page.goto('https://example.com');
+  await page.getByRole('searchbox', { name: /search/i }).fill('playwright');
+  await page.getByRole('button', { name: /search/i }).click();
+  await expect(page.getByRole('heading', { name: /results/i })).toBeVisible();
+  await expect(page.locator('[data-test=\"result-item\"]').first()).toContainText('Playwright');
+});
+</code></pre>
+                        </div>
+                        <p>Why this works better:</p>
                         <ul>
-                            <li>GIVEN
-                                <ul>
-                                    <li>I am on a website and have searched for a search term.</li>
-                                </ul>
-                            </li>
-                            <li>WHEN
-                                <ul>
-                                    <li>I click a specific search result in the result list.</li>
-                                </ul>
-                            </li>
-                            <li>THEN
-                                <ul>
-                                    <li>The result is displayed with the expected content.</li>
-                                </ul>
-                            </li>
+                            <li><code>getByRole</code> improves readability and accessibility alignment.</li>
+                            <li>Assertions are business-relevant, not implementation-specific.</li>
+                            <li>Auto-waiting reduces flaky timing issues compared to manual sleeps.</li>
                         </ul>
                     </div>
 
                     <div class="blog-article-paragraph">
-                        <h3>5. Demo: Automated API Testing with Playwright</h3> <br>
+                        <h3>5. Add API Testing for Faster Feedback</h3>
                         <p>
-                            Playwright is also strong for API testing. In this demo, create a script that verifies both
-                            website content and API responses.
+                            API tests are often faster and more deterministic than UI tests. Use them to validate core
+                            business behavior early in the pipeline.
                         </p>
-                        <p>Example API test case:</p>
+                        <div class="article-code-block">
+                            <div class="article-code-header"><span>TypeScript</span></div>
+                        <pre data-lang="typescript"><code>import { test, expect } from '@playwright/test';
+
+test('products API returns 200 and expected schema', async ({ request }) =&gt; {
+  const response = await request.get('https://api.example.com/products');
+  expect(response.status()).toBe(200);
+
+  const body = await response.json();
+  expect(Array.isArray(body.items)).toBeTruthy();
+  expect(body.items[0]).toHaveProperty('id');
+  expect(body.items[0]).toHaveProperty('name');
+});
+</code></pre>
+                        </div>
+                        <p>Practical strategy:</p>
                         <ul>
-                            <li>GIVEN
-                                <ul>
-                                    <li>I am on a website and have searched for a search term.</li>
-                                </ul>
-                            </li>
-                            <li>WHEN
-                                <ul>
-                                    <li>I click a specific search result in the result list.</li>
-                                </ul>
-                            </li>
-                            <li>THEN
-                                <ul>
-                                    <li>The expected content is returned and displayed.</li>
-                                </ul>
-                            </li>
+                            <li>Use API tests for logic and data contracts.</li>
+                            <li>Keep a smaller UI layer for critical end-user journeys.</li>
+                            <li>Run API tests on every pull request for quick confidence.</li>
                         </ul>
                     </div>
 
                     <div class="blog-article-paragraph">
-                        <h3>6. Next Steps</h3> <br>
-                        <p>To continue learning Playwright, use these resources:</p>
+                        <h3>6. Organize Tests for Scale</h3>
+                        <p>As the suite grows, structure becomes more important than tooling features.</p>
                         <ul>
-                            <li>Playwright docs:
-                                <ul>
-                                    <li><a href="https://playwright.dev/docs/intro" target="_blank" rel="noopener noreferrer">https://playwright.dev/docs/intro</a></li>
-                                </ul>
-                            </li>
-                            <li>Courses on Udemy:
-                                <ul>
-                                    <li><a href="https://www.udemy.com/course/playwright-tutorials-automation-testing/" target="_blank" rel="noopener noreferrer">Playwright tutorials course</a></li>
-                                </ul>
-                            </li>
-                            <li>Homework:
-                                <ul>
-                                    <li>Automate at least one regression test in your own project.</li>
-                                </ul>
-                            </li>
+                            <li>Group tests by feature area, not by technical type only.</li>
+                            <li>Use fixtures for reusable setup data and authentication context.</li>
+                            <li>Use tags (for example <code>@smoke</code>, <code>@regression</code>) to control scope.</li>
+                            <li>Set retries only for CI and track flaky test trends actively.</li>
                         </ul>
+                        <div class="article-code-block">
+                            <div class="article-code-header"><span>Folder Structure</span></div>
+                        <pre data-lang="text"><code>tests/
+  checkout/
+    checkout-smoke.spec.ts
+    checkout-regression.spec.ts
+  auth/
+    login.spec.ts
+fixtures/
+  test-data.ts
+  auth-state.ts
+</code></pre>
+                        </div>
                     </div>
 
                     <div class="blog-article-paragraph">
-                        <h3>7. Conclusion</h3> <br>
+                        <h3>7. Integrate with CI/CD from Day One</h3>
                         <p>
-                            Playwright makes it straightforward to get started with test automation across browsers and
-                            platforms. With this guide, you can start building robust and reliable automated tests for
-                            web applications.
+                            A test suite creates value when it supports release decisions. Run it automatically and
+                            publish reports for fast triage.
+                        </p>
+                        <div class="article-code-block">
+                            <div class="article-code-header"><span>YAML</span></div>
+                        <pre data-lang="yaml"><code>name: Playwright Tests
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npx playwright install --with-deps
+      - run: npx playwright test
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+</code></pre>
+                        </div>
+                        <p>Minimum CI reporting should include:</p>
+                        <ul>
+                            <li>Pass/fail status by suite and environment.</li>
+                            <li>Links to traces, screenshots, and video for failed tests.</li>
+                            <li>Trend view for failure rate and flaky test ratio over time.</li>
+                        </ul>
+                    </div>
+
+                    <div class="blog-article-paragraph">
+                        <h3>8. Common Pitfalls and How to Avoid Them</h3>
+                        <ul>
+                            <li>Too many UI tests: move lower-level checks to API and component tests.</li>
+                            <li>Unstable selectors: prefer role-based or dedicated <code>data-test</code> locators.</li>
+                            <li>Shared test data collisions: isolate data per run or per worker.</li>
+                            <li>Ignoring flaky tests: quarantine immediately and assign ownership.</li>
+                            <li>No clear quality gate: define release criteria before scaling the suite.</li>
+                        </ul>
+                    </div>
+
+                    <div class="blog-article-paragraph">
+                        <h3>9. Playwright Courses and Team Training by Testauto</h3>
+                        <p>
+                            At Testauto, we offer Playwright courses, workshops, and practical coaching tailored to
+                            your team and delivery context. This applies to any IT team in any environment, whether
+                            you already run automated tests or are starting without a structured professional testing
+                            approach.
+                        </p>
+                        <p>
+                            We help teams establish a sustainable automation strategy, improve test reliability, and
+                            build the right quality practices for long-term value.
+                        </p>
+                        <p>
+                            Want to discuss your current setup and next steps? <a href="../index.html#contact">Contact
+                                me and book a free consultation</a>.
+                        </p>
+                    </div>
+
+                    <div class="blog-article-paragraph">
+                        <h3>10. Conclusion</h3>
+                        <p>
+                            Playwright is a strong option for teams that need reliable cross-browser automation and
+                            faster feedback loops. Start small with one critical GUI flow and a handful of API tests,
+                            integrate into CI, and scale only what creates measurable product confidence.
                         </p>
                     </div>
 
                     <div class="blog-article-paragraph article-references">
                         <h3>References</h3>
-                        <p>Reference style: numbered web references (best suited for blog readability).</p>
+                        <p>Reference style: numbered web references.</p>
                         <ol>
-                            <li><a href="https://playwright.dev/docs/intro" target="_blank" rel="noopener noreferrer">Playwright Documentation</a></li>
-                            <li><a href="https://nodejs.org/en/download" target="_blank" rel="noopener noreferrer">Node.js Download</a></li>
+                            <li><a href="https://playwright.dev/docs/intro" target="_blank" rel="noopener noreferrer">Playwright Documentation - Introduction</a></li>
+                            <li><a href="https://playwright.dev/docs/best-practices" target="_blank" rel="noopener noreferrer">Playwright Documentation - Best Practices</a></li>
+                            <li><a href="https://playwright.dev/docs/test-reporters" target="_blank" rel="noopener noreferrer">Playwright Documentation - Reporters</a></li>
+                            <li><a href="https://nodejs.org/en/download" target="_blank" rel="noopener noreferrer">Node.js Download (LTS)</a></li>
                             <li><a href="https://code.visualstudio.com/download" target="_blank" rel="noopener noreferrer">Visual Studio Code Download</a></li>
-                            <li><a href="https://www.udemy.com/course/playwright-tutorials-automation-testing/" target="_blank" rel="noopener noreferrer">Playwright Tutorials (Udemy)</a></li>
+                            <li><a href="https://martinfowler.com/articles/practical-test-pyramid.html" target="_blank" rel="noopener noreferrer">Martin Fowler - The Practical Test Pyramid</a></li>
                         </ol>
                     </div>
 
